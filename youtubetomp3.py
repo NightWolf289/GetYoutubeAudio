@@ -48,7 +48,7 @@ for line in file:
     vidTitle = vidTitle.replace('~', '')
 
     #throws an error if the file is not found
-    my_file = Path(getcwd() + '/.trash/' + vidTitle + '.mp3')
+    my_file = Path(getcwd() + '/.trash/' + vidTitle + '.mp4')
     try:
         my_abs_path = my_file.resolve(strict=True)
     except FileNotFoundError:

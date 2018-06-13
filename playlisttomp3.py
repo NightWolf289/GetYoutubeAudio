@@ -24,7 +24,7 @@ for line in file:
     newPlaylist.populate_video_urls()
     for url in newPlaylist.video_urls:     
         #open the youtube video, get the mp4 audio stream, and save it to a file
-        ogVid = YouTube(line)
+        ogVid = YouTube(url)
         yt = ogVid.streams.filter(only_audio=True, subtype='mp4')
         if yt.count() == 0:
             yt = ogVid.streams.filter(subtype='mp4')
@@ -62,8 +62,10 @@ for line in file:
             #exists
             #open the video with moviepy and save it to clip the weird silence off of the end
             clip = AudioFileClip(getcwd() + '/.trash/' + vidTitle + '.mp4')
-            ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp3', fps=44100, nbytes=4, buffersize=2000,codec='libmp3lame') 
+            clipLen = clip.duration
             clip.close()
+            clip = AudioFileClip(getcwd() + '/.trash/' + vidTitle + '.mp4').subclip(0, clipLen/2)
+            ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp3', fps=44100, nbytes=4, buffersize=2000, codec='libmp3lame') 
             print(ogVid.title + ' DOWNLOADED')
 file.close()
 #delete all the useless files in the .trash folder
