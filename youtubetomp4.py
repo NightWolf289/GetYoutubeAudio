@@ -17,7 +17,7 @@ from pathlib import Path
 
 
 errorList = []
-print('YouTube to MP4 v3.0\n')
+print('YouTube to MP4 v4.0\n')
 file = open('downloadlist.txt', 'r') 
 for line in file: 
     #open the youtube video, get the mp4 audio stream, and save it to a file
@@ -58,18 +58,8 @@ for line in file:
     else:
         # exists
         #open the video with moviepy and save it to clip the weird silence off of the end
-        #brew reinstall ffmpeg --with-libvorbis --with-libavformat
-        #sudo apt-get install ffmpeg libavcodec-extra-52
         clip = AudioFileClip(getcwd() + '/.trash/' + vidTitle + '.mp4')
-        clipLen = clip.duration
-        clip.close()
-        clip = AudioFileClip(getcwd() + '/.trash/' + vidTitle + '.mp4').subclip(0, clipLen/2)
-        ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp3', fps=44100, nbytes=4, buffersize=2000, codec='libmp3lame') 
-        #libavformat
-        #libvorbis
-        #libxvid
-        #libx264
-        #libmp3lame
+        ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp4', fps=44100, nbytes=4, buffersize=2000, codec='aac') 
         clip.close() 
         print(ogVid.title + ' DOWNLOADED')
 file.close()

@@ -16,7 +16,7 @@ from moviepy.audio.io.AudioFileClip import AudioFileClip
 from pathlib import Path    
 
 errorList = []
-print('Playlist to MP4 v2.0\n')
+print('Playlist to MP4 v3.0\n')
 file = open('downloadplaylist.txt', 'r') 
 for line in file: 
     #create a playlist from the line in the file and iterate over each video
@@ -62,7 +62,7 @@ for line in file:
             #exists
             #open the video with moviepy and save it to clip the weird silence off of the end
             clip = AudioFileClip(getcwd() + '/.trash/' + vidTitle + '.mp4')
-            ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp4', fps=44100, nbytes=4, buffersize=2000) 
+            ffmpeg_audiowrite(clip, getcwd() + '/MusicFiles/' + vidTitle + '.mp4', fps=44100, nbytes=4, buffersize=2000,codec='aac') 
             clip.close()
             print(ogVid.title + ' DOWNLOADED')
 file.close()
