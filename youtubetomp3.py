@@ -48,7 +48,7 @@ for line in file:
     vidTitle = vidTitle.replace('~', '')
 
     #throws an error if the file is not found
-    my_file = Path(getcwd() + '/.trash/' + vidTitle + '.mp4')
+    my_file = Path(getcwd() + '/.trash/' + vidTitle + '.mp3')
     try:
         my_abs_path = my_file.resolve(strict=True)
     except FileNotFoundError:
@@ -78,7 +78,7 @@ file.close()
 filelist = [ f for f in listdir(getcwd() + '/.trash/') if f.endswith('.mp4') ]
 for f in filelist:
     remove(path.join(getcwd() + '/.trash/', f))
-print('\nYouTube to MP4 EXITED.')
+print('\nYouTube to MP3 EXITED.')
 
 #print out a list of videos that were not downloaded
 if len(errorList) > 0:
