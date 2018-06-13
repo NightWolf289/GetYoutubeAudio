@@ -24,7 +24,7 @@ for line in file:
     newPlaylist.populate_video_urls()
     for url in newPlaylist.video_urls:     
         #open the youtube video, get the mp4 audio stream, and save it to a file
-        ogVid = YouTube(line)
+        ogVid = YouTube(url)
         yt = ogVid.streams.filter(only_audio=True, subtype='mp4')
         if yt.count() == 0:
             yt = ogVid.streams.filter(subtype='mp4')
