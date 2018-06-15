@@ -17,7 +17,7 @@ from datetime import datetime
 
 errorList = []
 print('YouTube to MP4 v4.0')
-print('Program started: ' + datetime.now() + '\n')
+print('Program started: ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
 file = open('downloadlist.txt', 'r') 
 for line in file: 
     #open the youtube video, get the mp4 audio stream, and save it to a file
@@ -69,7 +69,7 @@ filelist = [ f for f in listdir(getcwd() + '/.trash/') if f.endswith('.mp4') ]
 for f in filelist:
     remove(path.join(getcwd() + '/.trash/', f))
 print('\nYouTube to MP4 EXITED.')
-print('Program ended: ' + datetime.now() + '\n')
+print('Program ended: ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
 
 #print out a list of videos that were not downloaded
 if len(errorList) > 0:

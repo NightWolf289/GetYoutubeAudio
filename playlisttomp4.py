@@ -18,7 +18,7 @@ from datetime import datetime
  
 errorList = []
 print('Playlist to MP4 v3.0')
-print('Program started: ' + datetime.now() + '\n')
+print('Program started: ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
 file = open('downloadplaylist.txt', 'r') 
 for line in file: 
     #create a playlist from the line in the file and iterate over each video
@@ -73,7 +73,7 @@ filelist = [ f for f in listdir(getcwd() + '/.trash/') if f.endswith('.mp4') ]
 for f in filelist:
     remove(path.join(getcwd() + '/.trash/', f))
 print('\nPlaylist to MP4 EXITED.')
-print('Program ended: ' + datetime.now() + '\n')
+print('Program ended: ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
 
 #print out a list of videos that were not downloaded
 if len(errorList) > 0:
