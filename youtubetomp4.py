@@ -14,8 +14,6 @@ from moviepy.audio.io.ffmpeg_audiowriter import ffmpeg_audiowrite
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 from pathlib import Path
 from datetime import datetime
-#import mutagen
-
 
 errorList = []
 print('YouTube to MP4 v4.0')
