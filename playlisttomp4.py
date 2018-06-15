@@ -31,7 +31,7 @@ for line in file:
         if yt.count() == 0:
             yt = ogVid.streams.filter(subtype='mp4')
         yt.first().download(getcwd() + '/.trash')
-
+        
         #erase special characters from file name search to match the file created by the YouTube downloader
         vidTitle = ogVid.title
         vidTitle = vidTitle.replace(',' , '')
